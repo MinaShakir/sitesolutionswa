@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&family=Roboto+Condensed:ital,wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -33,6 +33,7 @@
             color: var(--text-main); 
             line-height: 1.6; 
             background-color: var(--white); 
+            overflow-x: hidden; /* Prevents horizontal scrolling */
         }
 
         h1, h2, h3, h4, .logo-container strong {
@@ -128,7 +129,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 70vh; 
+            min-height: 70vh; /* Changed from height to min-height for flexibility */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('images/Hero.jpg'); 
             background-size: cover;
             background-position: center;
@@ -138,7 +139,7 @@
             align-items: center;
             text-align: center;
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
         .hero h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .hero p { font-family: var(--font-sub-headings); font-size: clamp(1.1rem, 2vw, 1.5rem); margin-bottom: 10px; font-style: italic; font-weight: 400; }
@@ -226,11 +227,34 @@
         .social-icon:hover { color: var(--primary-orange); transform: translateY(-3px); }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; font-family: var(--font-body); color: #999; }
 
+        /* --- MOBILE RESPONSIVE UPDATES --- */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 20px; gap: 15px; }
-            .logo-container { flex-direction: column; text-align: center; }
+            header { padding: 20px 5%; flex-direction: column; gap: 20px; }
+            .logo-container { width: 100%; justify-content: center; text-align: center; }
+            .header-logo { height: 40px; }
+            .logo-container strong { font-size: 16px; }
+            .logo-container span { font-size: 9px; }
+
             nav ul { gap: 12px; justify-content: center; flex-wrap: wrap; }
-            .top-info-bar { display: none; }
+            nav a { font-size: 11px; }
+
+            .top-info-bar { 
+                flex-direction: column; 
+                text-align: center; 
+                padding: 10px; 
+                gap: 5px; 
+            }
+            .top-info-bar div { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .top-info-bar a { margin-left: 0; font-size: 12px; }
+
+            .hero { padding: 100px 20px; }
+            .pillar-section h2.section-title { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container strong { font-size: 14px; }
+            nav ul { gap: 8px; }
+            nav a { font-size: 10px; }
         }
     </style>
 </head>
@@ -337,7 +361,7 @@
         <div class="testimonial-grid">
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Highly recommend Site & Strata Solutions for any handyman or carpentry work! Reliable, professional, and efficient. The quality of work was excellent."</p>
+                <p>"Highly recommend Site & Strata Solutions for any handyman or carpentry work! Reliable, professional, and efficient. The quality of work was excellent — clean, precise, and exactly what I needed. Will definitely be using their services again."</p>
                 <span class="testimonial-author">Rana M.</span>
                 <span class="author-title">Homeowner</span>
             </div>
@@ -349,7 +373,7 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Fantastic experience with Marmina. Was available at a short notice but also super flexible with timing!"</p>
+                <p>"Fantastic experience with Marmina. Was available at a short notice but also super flexible with timing! Will be contacting for any future work needed at my property. Thanks again!"</p>
                 <span class="testimonial-author">Kiah P.</span>
                 <span class="author-title">Homeowner</span>
             </div>
@@ -394,8 +418,8 @@
                 <p><strong>Hours:</strong> Mon - Sun: 9am - 6pm</p>
                 
                 <div class="social-links">
-                    <a href="https://www.facebook.com/siteandstratasolutions" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/sitestratasolutions" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sitestratasolutionswa" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sitestratasolutionswa" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
