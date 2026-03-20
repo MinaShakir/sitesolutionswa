@@ -39,7 +39,7 @@
             font-family: var(--font-titles);
         }
 
-        /* --- NEW: SCROLL REVEAL CSS --- */
+        /* --- SCROLL REVEAL CSS --- */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -53,7 +53,7 @@
             visibility: visible;
         }
 
-        /* --- 1. REVISED TOP BAR --- */
+        /* --- NAVIGATION --- */
         #main-nav-container {
             position: relative; 
             width: 100%;
@@ -73,7 +73,6 @@
         .top-info-bar a { color: white; text-decoration: none; font-weight: bold; margin-left: 15px; }
         .emergency-label { color: white; font-weight: bold; display: flex; align-items: center; gap: 5px; }
 
-        /* --- 2. REVISED NAVIGATION --- */
         header {
             background-color: var(--white);
             padding: 15px 5%;
@@ -98,11 +97,6 @@
         nav li { position: relative; }
         nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; font-family: var(--font-sub-headings); }
         nav a:hover { color: var(--primary-orange); }
-
-        .active-page {
-            border-bottom: 2px solid var(--primary-orange);
-            padding-bottom: 2px;
-        }
 
         .dropdown-content {
             display: none;
@@ -132,7 +126,7 @@
         .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary-orange); }
         nav li:hover .dropdown-content { display: block; }
 
-        /* --- 3. HERO SECTION --- */
+        /* --- HERO SECTION --- */
         .hero {
             height: 70vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('images/Hero.jpg'); 
@@ -164,7 +158,7 @@
         }
         .cta-button:hover { transform: translateY(-3px); background-color: #d44335; }
 
-        /* --- 4. Service Pillars --- */
+        /* --- Service Pillars --- */
         .pillar-section { padding: 80px 5%; background: var(--white); text-align: center; }
         .pillar-section h2.section-title { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px; }
         .pillar-section p.section-subtitle { font-family: var(--font-body); font-size: 1.1rem; color: #666; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
@@ -188,7 +182,7 @@
         .pillar-card li::before { content: "✓"; color: var(--primary-orange); position: absolute; left: 0; font-weight: bold; }
         .learn-more { font-family: var(--font-titles); color: var(--primary-orange); text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 
-        /* --- 5. Why Choose Us --- */
+        /* --- Why Choose Us --- */
         .why-us { padding: 80px 5%; background-color: var(--dark-bg); color: white; text-align: center; }
         .why-us h2 { font-size: 2.2rem; margin-bottom: 40px; }
         .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto 0; }
@@ -196,7 +190,12 @@
         .why-card h3 { color: var(--primary-orange); margin-bottom: 15px; font-size: 20px; }
         .why-card p { font-family: var(--font-body); font-size: 15px; color: #bbb; }
 
-        /* --- 6. Testimonials Section --- */
+        /* --- Trust Bar --- */
+        .trust-bar { padding: 50px 5%; background: #f0f0f0; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; gap: 30px; }
+        .trust-item h4 { font-size: 28px; color: var(--primary-orange); margin-bottom: 5px; }
+        .trust-item p { font-family: var(--font-sub-headings); font-size: 13px; font-weight: bold; text-transform: uppercase; color: #666; letter-spacing: 1px; }
+
+        /* --- Testimonials --- */
         .testimonials { padding: 80px 5%; background-color: var(--white); text-align: center; }
         .testimonials h2 { font-size: 2.2rem; margin-bottom: 40px; color: var(--dark-bg); }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
@@ -213,12 +212,7 @@
         .testimonial-author { font-family: var(--font-titles); font-weight: bold; color: var(--dark-bg); }
         .author-title { font-family: var(--font-sub-headings); font-size: 12px; color: #888; text-transform: uppercase; display: block; }
 
-        /* --- 7. Trust Bar --- */
-        .trust-bar { padding: 50px 5%; background: #f0f0f0; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; gap: 30px; }
-        .trust-item h4 { font-size: 28px; color: var(--primary-orange); margin-bottom: 5px; }
-        .trust-item p { font-family: var(--font-sub-headings); font-size: 13px; font-weight: bold; text-transform: uppercase; color: #666; letter-spacing: 1px; }
-
-        /* --- 8. FOOTER --- */
+        /* --- FOOTER --- */
         .main-footer { background-color: var(--white); color: #444; padding: 70px 5% 20px; font-size: 14px; border-top: 1px solid #eee; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-col h4 { color: #1a1a1a; margin-bottom: 25px; font-size: 16px; text-transform: uppercase; border-bottom: 2px solid var(--primary-orange); display: inline-block; padding-bottom: 5px; }
@@ -232,7 +226,6 @@
         .social-icon:hover { color: var(--primary-orange); transform: translateY(-3px); }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; font-family: var(--font-body); color: #999; }
 
-        /* --- Mobile Adjustments --- */
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 20px; gap: 15px; }
             .logo-container { flex-direction: column; text-align: center; }
@@ -254,8 +247,8 @@
         </div>
 
         <header>
-            <a href="#" class="logo-container">
-                <img src="images/ssswa.svg" alt="SSSWA Logo" class="header-logo">
+            <a href="index.html" class="logo-container">
+                <img src="images/sswa.svg" alt="SSSWA Logo" class="header-logo">
                 <div class="logo-text-wrapper">
                     <strong>SITE & STRATA SOLUTIONS WA </strong>
                     <span>BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTIONS</span>
@@ -263,19 +256,19 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">NDIS</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="NDIS.html">NDIS</a></li>
                     <li>
-                        <a href="#" class="active-page">Services ▾</a>
+                        <a href="#">Services ▾</a>
                         <div class="dropdown-content">
                             <a href="maintenance-renovation.html">Maintenance & Renovation</a>
                             <a href="rental-inspection.html">Rental Inspection</a>
                         </div>
                     </li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </nav>
         </header>
@@ -332,12 +325,19 @@
         </div>
     </section>
 
+    <section class="trust-bar reveal">
+        <div class="trust-item"><h4>15+</h4><p>Years in Perth</p></div>
+        <div class="trust-item"><h4>Licensed</h4><p>Trade Qualified</p></div>
+        <div class="trust-item"><h4>NDIS</h4><p>Registered Provider</p></div>
+        <div class="trust-item"><h4>24/7</h4><p>Online Support</p></div>
+    </section>
+
     <section class="testimonials reveal">
         <h2>What Our Clients Say</h2>
         <div class="testimonial-grid">
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Highly recommend Site & Strata Solutions for any handyman or carpentry work! Reliable, professional, and effecient. The quality of work was excellent — clean, precise, and exactly what I needed. Will definitely be using their services again."</p>
+                <p>"Highly recommend Site & Strata Solutions for any handyman or carpentry work! Reliable, professional, and efficient. The quality of work was excellent."</p>
                 <span class="testimonial-author">Rana M.</span>
                 <span class="author-title">Homeowner</span>
             </div>
@@ -349,25 +349,18 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Fantastic experience with Marmina. Was available at a short notice but also super flexible with timing! Will be contacting for any future work needed at my property. Thanks again!"</p>
+                <p>"Fantastic experience with Marmina. Was available at a short notice but also super flexible with timing!"</p>
                 <span class="testimonial-author">Kiah P.</span>
                 <span class="author-title">Homeowner</span>
             </div>
         </div>
     </section>
 
-    <section class="trust-bar reveal">
-        <div class="trust-item"><h4>15+</h4><p>Years in Perth</p></div>
-        <div class="trust-item"><h4>Licensed</h4><p>Trade Qualified</p></div>
-        <div class="trust-item"><h4>NDIS</h4><p>Registered Provider</p></div>
-        <div class="trust-item"><h4>24/7</h4><p>Tradie Support</p></div>
-    </section>
-
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="logo-container" style="margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
-                    <img src="images/ssswa.svg" alt="SSSWA Logo" style="height: 38px; width: auto;">
+                    <img src="images/sswa.svg" alt="SSSWA Logo" style="height: 38px; width: auto;">
                     <div class="logo-text-wrapper">
                         <strong style="font-size: 18px; color: #1a1a1a; display: block;">SITE & STRATA SOLUTIONS WA</strong>
                         <span style="font-size: 10px; letter-spacing: 1.5px; color: #666; font-weight: bold; text-transform: uppercase;">BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTION</span>
@@ -384,6 +377,7 @@
                     <li><a href="#">NDIS Provider</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Portfolio</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -412,10 +406,7 @@
     </footer>
 
     <script>
-        const observerOptions = {
-            threshold: 0.15 // Triggers when 15% of the element is visible
-        };
-
+        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
