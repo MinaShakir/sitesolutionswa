@@ -235,13 +235,53 @@
         .social-icon:hover { color: var(--primary-orange); transform: translateY(-3px); }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; font-family: var(--font-body); color: #999; }
 
-        /* --- Mobile Adjustments --- */
+        /* --- MOBILE ADJUSTMENTS (Keep your code, just make it responsive) --- */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 20px; gap: 15px; }
-            .logo-container { flex-direction: column; text-align: center; }
-            nav ul { gap: 12px; justify-content: center; flex-wrap: wrap; }
-            .top-info-bar { display: none; }
-            .column-grid { flex-direction: column; }
+            header { 
+                flex-direction: column; 
+                padding: 15px 5%; 
+                gap: 15px; 
+            }
+            .logo-container { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 8px;
+            }
+            .header-logo { height: 40px; }
+            .logo-container strong { font-size: 16px; }
+            .logo-container span { font-size: 9px; letter-spacing: 1px; }
+
+            nav ul { 
+                gap: 10px; 
+                justify-content: center; 
+                flex-wrap: wrap; 
+            }
+            nav a { font-size: 11px; }
+
+            .top-info-bar { 
+                flex-direction: column; 
+                padding: 10px; 
+                gap: 5px;
+                text-align: center;
+            }
+            .top-info-bar a { margin-left: 0; font-size: 12px; }
+
+            .story-section h1 { font-size: 2rem; }
+            .story-section p { font-size: 1rem; padding: 0 10px; }
+
+            .lead-section { 
+                padding: 60px 20px; 
+                background-attachment: scroll; /* Fixed BG sometimes glitches on mobile */
+            }
+            .lead-section h2 { font-size: 1.8rem; }
+            
+            .column-grid { flex-direction: column; gap: 20px; }
+            .column-item { min-width: 100%; padding: 30px 15px; }
+
+            .values-section { 
+                grid-template-columns: 1fr; 
+                margin: 40px 0;
+            }
         }
     </style>
 </head>
@@ -352,9 +392,10 @@
                 <ul>
                     <li><a href="maintenance-renovation.html">Maintenance & Renovation</a></li>
                     <li><a href="rental-inspection.html">Rental Inspections</a></li>
-                    <li><a href="NDIS.html">NDIS Provider</a></li>
+                    <li><a href="NDIS.html">NDIS</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="portfolio">Portfolio</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact,html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -371,8 +412,8 @@
                 <p><strong>Hours:</strong> Mon - Sun: 9am - 6pm</p>
                 
                 <div class="social-links">
-                    <a href="https://www.facebook.com/siteandstratasolutions" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/sitestratasolutions" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sitestratasolutionswa" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sitestratasolutionswa" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
