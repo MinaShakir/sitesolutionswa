@@ -84,6 +84,37 @@
         }
         nav a:hover, nav a.active { color: var(--primary-orange); }
 
+        /* --- UPDATED DROPDOWN SECTION --- */
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--white);
+        min-width: 220px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+        z-index: 2001;
+        top: 100%;
+        left: 0;
+        border: 1px solid #eee;
+        /* REMOVED margin-top from here to prevent the "dead zone" */
+       }
+
+       /* This creates an invisible bridge so the menu stays open while moving the mouse down */
+       .dropdown-content::before {
+       content: "";
+       position: absolute;
+       top: -20px; 
+       left: 0;
+       width: 100%;
+       height: 20px;
+       display: block;
+       }
+
+       /* Re-apply the margin only when the parent is hovered */
+       nav li:hover .dropdown-content { 
+       display: block; 
+       margin-top: 10px; 
+       }
+
         /* --- NDIS HERO --- */
         .ndis-hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/perth-home-mod.jpg'); 
@@ -177,13 +208,19 @@
         </a>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="NDIS.html" class="active">NDIS</a></li>
-                <li><a href="#">Services <i class="fas fa-caret-down"></i></a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                 <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="NDIS.html">NDIS</a></li>
+                    <li>
+                        <a href="#">Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="maintenance-renovation.html">Maintenance & Renovation</a>
+                            <a href="rental-inspection.html">Rental Inspection</a>
+                        </div>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
