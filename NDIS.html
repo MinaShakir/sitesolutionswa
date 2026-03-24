@@ -84,6 +84,35 @@
         }
         nav a:hover, nav a.active { color: var(--primary-orange); }
 
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 2001;
+            top: 100%;
+            left: 0;
+            border: 1px solid #eee;
+            margin-top: 10px;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s;
+            font-family: var(--font-sub-headings);
+        }
+
+        .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary-orange); }
+         nav li:hover .dropdown-content { display: block; }
+
+
         /* --- NDIS HERO --- */
         .ndis-hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/perth-home-mod.jpg'); 
