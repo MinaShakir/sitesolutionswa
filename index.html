@@ -99,33 +99,36 @@
         nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; font-family: var(--font-sub-headings); }
         nav a:hover { color: var(--primary-orange); }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 220px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 2001;
-            top: 100%;
-            left: 0;
-            border: 1px solid #eee;
-            margin-top: 10px;
-        }
+        /* --- UPDATED DROPDOWN SECTION --- */
+       .dropdown-content {
+       display: none;
+       position: absolute;
+       background-color: var(--white);
+       min-width: 220px;
+       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+       z-index: 2001;
+       top: 100%;
+       left: 0;
+       border: 1px solid #eee;
+       /* REMOVED margin-top from here to prevent the "dead zone" */
+       }
 
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 12px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #eee;
-            transition: background 0.3s;
-            font-family: var(--font-sub-headings);
-        }
+      /* This creates an invisible bridge so the menu stays open while moving the mouse down */
+      .dropdown-content::before {
+      content: "";
+      position: absolute;
+      top: -20px; 
+      left: 0;
+      width: 100%;
+      height: 20px;
+      display: block;
+      }
 
-        .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary-orange); }
-        nav li:hover .dropdown-content { display: block; }
+      /* Re-apply the margin only when the parent is hovered */
+      nav li:hover .dropdown-content { 
+      display: block; 
+      margin-top: 10px; 
+      }
 
         /* --- HERO SECTION --- */
         .hero {
