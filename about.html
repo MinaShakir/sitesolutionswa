@@ -104,33 +104,35 @@
             padding-bottom: 2px;
         }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 220px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 2001;
-            top: 100%;
-            left: 0;
-            border: 1px solid #eee;
-            margin-top: 10px;
-        }
+         .dropdown-content {
+       display: none;
+       position: absolute;
+       background-color: var(--white);
+       min-width: 220px;
+       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+       z-index: 2001;
+       top: 100%; /* Sits exactly at the bottom of the Nav bar */
+       left: 0;
+       border: 1px solid #eee;
+      /* margin-top: 10px;  <-- REMOVE THIS to stop the flickering */
+      }
 
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 12px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #eee;
-            transition: background 0.3s;
-            font-family: var(--font-sub-headings);
-        }
+      /* This creates an invisible "bridge" so the mouse doesn't leave the hover zone */
+    .dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Adjust this to match how much space you want above the menu */
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: transparent;
+    }
 
-        .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary-orange); }
-        nav li:hover .dropdown-content { display: block; }
+    /* If you want a visual gap, add margin-top to the FIRST link inside instead */
+    .dropdown-content a:first-child {
+    margin-top: 5px;
+    }
+
         /* --- ABOUT PILLAR --- */
         .about-pillar {
             max-width: 1200px;
