@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NDIS Services | Site & Strata Solutions WA</title>
+    <meta name="description" content="Registered NDIS provider in Perth. Professional home modifications, maintenance, and accessible living solutions by Site & Strata Solutions WA.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        /* --- Color Palette & Variables --- */
         :root {
             --primary-orange: #eb5444; 
-            --dark-grey: #1a1a1a;
+            --dark-bg: #1a1a1a;
             --light-bg: #f9f9f9;
             --white: #ffffff;
             --text-main: #333333;
             --ndis-blue: #00a9ce;
-            
-            --warning-yellow: #ffcc00;
-            --phone-pink: #ff69b4;
             
             --font-titles: 'Montserrat', sans-serif;
             --font-sub-headings: 'Roboto Condensed', sans-serif;
@@ -34,28 +32,46 @@
             font-family: var(--font-body); 
             color: var(--text-main); 
             line-height: 1.6; 
+            background-color: var(--white); 
         }
 
-        h1, h2, h3, h4 { font-family: var(--font-titles); text-transform: uppercase; }
+        h1, h2, h3, h4, .logo-container strong {
+            font-family: var(--font-titles);
+        }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal-visible { opacity: 1; transform: translateY(0); }
+        /* --- SCROLL REVEAL CSS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s ease-out;
+            visibility: hidden;
+        }
 
-        /* --- RED TOP BAR --- */
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        /* --- NAVIGATION --- */
+        #main-nav-container {
+            position: relative; 
+            width: 100%;
+            z-index: 2000;
+        }
+
         .top-info-bar {
             background-color: var(--primary-orange);
-            padding: 8px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            font-size: 14px;
             font-family: var(--font-sub-headings);
             color: white;
-            font-weight: 700;
         }
-        .top-info-bar .warning-icon { color: var(--warning-yellow); margin-right: 8px; }
-        .top-info-bar .phone-icon { color: var(--phone-pink); margin-right: 5px; }
-        .top-info-bar a { color: white; text-decoration: none; display: flex; align-items: center; }
+        .top-info-bar a { color: white; text-decoration: none; font-weight: bold; margin-left: 15px; }
+        .emergency-label { color: white; font-weight: bold; display: flex; align-items: center; gap: 5px; }
 
         header {
             background-color: var(--white);
@@ -64,6 +80,8 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
         }
         
         .logo-container { 
@@ -80,153 +98,190 @@
         nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
         nav li { position: relative; }
         nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; font-family: var(--font-sub-headings); }
-      
-       .dropdown-content {
-       display: none;
-       position: absolute;
-       background-color: var(--white);
-       min-width: 220px;
-       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-       z-index: 2001;
-       top: 100%; /* Sits exactly at the bottom of the Nav bar */
-       left: 0;
-       border: 1px solid #eee;
-      /* margin-top: 10px;  <-- REMOVE THIS to stop the flickering */
-      }
+        nav a:hover, .active-page { color: var(--primary-orange); }
 
-      /* This creates an invisible "bridge" so the mouse doesn't leave the hover zone */
-    .dropdown-content::before {
-    content: "";
-    position: absolute;
-    top: -15px; /* Adjust this to match how much space you want above the menu */
-    left: 0;
-    width: 100%;
-    height: 15px;
-    background: transparent;
-    }
+        .active-page {
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 2px;
+        }
 
-    /* If you want a visual gap, add margin-top to the FIRST link inside instead */
-    .dropdown-content a:first-child {
-    margin-top: 5px;
-    }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 2001;
+            top: 100%;
+            left: 0;
+            border: 1px solid #eee;
+        }
 
-        /* --- NDIS HERO --- */
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: transparent;
+        }
+
+        nav li:hover .dropdown-content { display: block; }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 12px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .dropdown-content a:hover { background-color: var(--light-bg); color: var(--primary-orange); }
+
+        /* --- NDIS HERO PILLAR --- */
         .ndis-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/perth-home-mod.jpg'); 
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
+                        url('images/perth-home-mod.jpg'); 
             background-size: cover;
             background-position: center;
-            color: white;
-            padding: 90px 5%;
+            background-attachment: fixed;
+            padding: 100px 5%;
+            color: var(--white);
             text-align: center;
         }
-        .ndis-main-logo { max-width: 180px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+        .ndis-main-logo { max-width: 180px; filter: brightness(0) invert(1); margin-bottom: 25px; }
         .registration-badge {
             background: var(--white);
-            color: var(--dark-grey);
-            padding: 8px 22px;
+            color: var(--dark-bg);
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 12px;
+            font-size: 13px;
             display: inline-block;
             margin-bottom: 20px;
             border: 2px solid var(--ndis-blue);
+            font-family: var(--font-sub-headings);
+        }
+        .ndis-hero h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 20px; }
+        .ndis-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; }
+
+        /* --- CONTENT CONTAINER --- */
+        .ndis-pillar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 5%;
         }
 
-        /* --- NDIS SERVICES --- */
-        .ndis-container { max-width: 1200px; margin: 0 auto; padding: 70px 5%; }
-        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--dark-bg); text-transform: uppercase; }
         .underline { width: 60px; height: 4px; background: var(--primary-orange); margin: 15px auto; }
 
-        .ndis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* --- SERVICES GRID --- */
+        .ndis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
         .ndis-card {
             background: var(--light-bg);
-            padding: 40px;
-            border-radius: 8px;
+            padding: 50px 40px;
             text-align: center;
+            border-radius: 8px;
             border-top: 5px solid var(--primary-orange);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
+        .ndis-card:hover { transform: translateY(-5px); }
+        .ndis-card .icon-wrap { font-size: 45px; margin-bottom: 25px; display: block; }
+        .ndis-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--dark-bg); }
 
-        /* --- OUR PROCESS --- */
-        .process-section { padding: 80px 5%; text-align: center; background-color: var(--white); }
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1100px; margin: 50px auto 0; }
-        .step-circle { 
-            width: 60px; height: 60px; background-color: var(--primary-orange); 
-            color: white; border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-size: 24px; font-weight: 800; margin: 0 auto 20px; 
+        /* --- PROCESS SECTION --- */
+        .process-bg { background-color: #f4f4f4; padding: 80px 0; }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
         }
+        .step-circle { 
+            width: 70px; height: 70px; background-color: var(--primary-orange); 
+            color: white; border-radius: 50%; display: flex; align-items: center; 
+            justify-content: center; font-size: 28px; font-weight: 800; margin: 0 auto 25px;
+            font-family: var(--font-titles);
+        }
+        .process-step h4 { font-size: 1.4rem; margin-bottom: 15px; }
 
         /* --- FOOTER --- */
-        .main-footer { background-color: var(--white); color: #555; padding: 70px 5% 20px; border-top: 1px solid #eee; font-size: 14px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        
-        .footer-col h4 { 
-            color: var(--dark-grey); font-size: 15px; margin-bottom: 25px; 
-            border-bottom: 2px solid var(--primary-orange); display: inline-block; padding-bottom: 5px; 
-        }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; font-weight: 400; font-family: var(--font-sub-headings); }
-        .footer-col ul a { color: #555; text-decoration: none; }
+        .main-footer { background-color: var(--white); color: #444; padding: 70px 5% 20px; font-size: 14px; border-top: 1px solid #eee; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-col h4 { color: #1a1a1a; margin-bottom: 25px; font-size: 16px; text-transform: uppercase; border-bottom: 2px solid var(--primary-orange); display: inline-block; padding-bottom: 5px; }
+        .footer-col p { font-family: var(--font-body); margin-bottom: 15px; line-height: 1.8; color: #555; }
+        .footer-col ul { list-style: none; font-family: var(--font-sub-headings); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul a { color: #555; text-decoration: none; transition: 0.3s; }
+        .footer-col ul a:hover { color: var(--primary-orange); }
+        .social-links { margin-top: 20px; display: flex; gap: 15px; }
+        .social-icon { color: #333; font-size: 24px; transition: 0.3s; text-decoration: none; }
+        .social-icon:hover { color: var(--primary-orange); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; font-family: var(--font-body); color: #999; }
 
-        .footer-bottom { 
-            text-align: center; margin-top: 60px; padding-top: 25px; 
-            border-top: 1px solid #eee; font-size: 12px; color: #999; 
-        }
-        /* ADD THIS SECTION TO FIX THE BOLD CITIES */
-        .footer-col p { 
-        font-family: var(--font-body); 
-        font-weight: 400; /* This forces the text to be normal/not bold */
-        line-height: 1.8; 
-        color: #555; 
-        margin-bottom: 15px; 
-        }
-
-        .social-icons { margin-top: 20px; display: flex; gap: 15px; }
-        .social-icons a { color: #333; font-size: 24px; }
-
-        @media (max-width: 900px) {
-            header { flex-direction: column; text-align: center; gap: 15px; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-            .top-info-bar { flex-direction: column; gap: 10px; }
+        /* --- MOBILE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px 5%; gap: 15px; }
+            .logo-container { flex-direction: column; text-align: center; gap: 8px; }
+            .header-logo { height: 40px; }
+            .logo-container strong { font-size: 16px; }
+            nav ul { gap: 10px; justify-content: center; flex-wrap: wrap; }
+            nav a { font-size: 11px; }
+            .top-info-bar { flex-direction: column; padding: 10px; gap: 5px; text-align: center; }
+            .top-info-bar a { margin-left: 0; font-size: 12px; }
+            .ndis-hero h1 { font-size: 2.2rem; }
+            .ndis-hero { background-attachment: scroll; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-info-bar">
-        <div><i class="fas fa-exclamation-triangle warning-icon"></i> 24-Hours Online Emergency Service</div>
-        <div style="display: flex; gap: 20px;">
-            <a href="tel:0401544111"><i class="fas fa-phone-alt phone-icon"></i> 0401 544 111</a>
-            <a href="mailto:enquiries@sitenstrata.com"><i class="fas fa-envelope" style="color: #add8e6; margin-right: 5px;"></i> enquiries@sitenstrata.com</a>
-            <span><i class="far fa-clock" style="color: #ccc; margin-right: 5px;"></i> Mon-Sun 9am-6pm</span>
-        </div>
-    </div>
-
-    <header>
-        <a href="index.html" class="logo-container">
-            <img src="images/ssswa.svg" alt="SSSWA Logo" class="header-logo">
-            <div class="logo-text-wrapper">
-                <strong>SITE & STRATA SOLUTIONS WA</strong>
-                <span>BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTIONS</span>
+    <div id="main-nav-container">
+        <div class="top-info-bar">
+            <span class="emergency-label">⚠️ 24-Hours Online Emergency Service</span>
+            <div>
+                <a href="tel:0401544111">📞 0401 544 111</a>
+                <a href="mailto:enquiries@sitenstrata.com">✉️ enquiries@sitenstrata.com</a>
+                <a href="#">🕒 Mon-Sun 9am-6pm</a>
             </div>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="ndis.html" class="active">NDIS</a></li>
-                <li>
+        </div>
+
+        <header>
+            <a href="index.html" class="logo-container">
+                <img src="images/sswa.svg" alt="SSSWA Logo" class="header-logo">
+                <div class="logo-text-wrapper">
+                    <strong>SITE & STRATA SOLUTIONS WA</strong>
+                    <span>BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTIONS</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="NDIS.html" class="active-page">NDIS</a></li>
+                    <li>
                         <a href="#">Services ▾</a>
                         <div class="dropdown-content">
                             <a href="maintenance-renovation.html">Maintenance & Renovation</a>
                             <a href="rental-inspection.html">Rental Inspection</a>
                         </div>
                     </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
 
     <section class="ndis-hero reveal">
         <img src="images/ndis-logo.png" alt="NDIS Logo" class="ndis-main-logo">
@@ -236,50 +291,54 @@
         <p>Professional home modifications and maintenance for NDIS participants across Perth with integrity, safety, and care.</p>
     </section>
 
-    <main class="ndis-container">
+    <main class="ndis-pillar">
         <div class="section-title reveal">
             <h2>Our NDIS Services</h2>
             <div class="underline"></div>
         </div>
+
         <div class="ndis-grid">
             <div class="ndis-card reveal">
-                <span style="font-size: 40px; display: block; margin-bottom: 20px;">🏠</span>
+                <span class="icon-wrap">🏠</span>
                 <h3>Home Modifications</h3>
-                <p>Installation of ramps, grab rails, widening doorways, and threshold leveling to improve accessibility.</p>
+                <p>Installation of ramps, grab rails, widening doorways, and threshold leveling to improve accessibility and independence.</p>
             </div>
             <div class="ndis-card reveal">
-                <span style="font-size: 40px; display: block; margin-bottom: 20px;">🛠️</span>
+                <span class="icon-wrap">🛠️</span>
                 <h3>General Maintenance</h3>
-                <p>Yard clean-ups, gutter cleaning, smoke alarm checks, and general repairs to keep your home safe.</p>
+                <p>Yard clean-ups, gutter cleaning, smoke alarm checks, and general repairs to keep your home safe and functional.</p>
             </div>
             <div class="ndis-card reveal">
-                <span style="font-size: 40px; display: block; margin-bottom: 20px;">🚿</span>
+                <span class="icon-wrap">🚿</span>
                 <h3>Bathroom Upgrades</h3>
-                <p>Modifying bathrooms with accessible tapware, handheld showers, and non-slip surface treatments.</p>
+                <p>Modifying bathrooms with accessible tapware, handheld showers, and non-slip surface treatments for daily safety.</p>
             </div>
         </div>
     </main>
 
-    <section class="process-section reveal">
-        <div class="section-title">
-            <h2>Our Process</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="step-circle">1</div>
-                <h4>Consultation</h4>
-                <p>Initial on-site assessment to understand your specific home modification needs.</p>
+    <section class="process-bg">
+        <div class="ndis-pillar">
+            <div class="section-title reveal">
+                <h2>Our Simple Process</h2>
+                <div class="underline"></div>
             </div>
-            <div class="process-step">
-                <div class="step-circle">2</div>
-                <h4>Quote & Approval</h4>
-                <p>Detailed quotes are sent to your Plan Manager for approval based on your NDIS funding.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-circle">3</div>
-                <h4>Completion</h4>
-                <p>Our trade-qualified team carries out the work with high quality and care.</p>
+            
+            <div class="process-grid reveal">
+                <div class="process-step">
+                    <div class="step-circle">1</div>
+                    <h4>Consultation</h4>
+                    <p>Initial on-site assessment to understand your specific home modification needs and goals.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-circle">2</div>
+                    <h4>Quote & Approval</h4>
+                    <p>Detailed quotes are sent to your Plan Manager for approval based on your NDIS funding requirements.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-circle">3</div>
+                    <h4>Completion</h4>
+                    <p>Our trade-qualified team carries out the work with high quality, ensuring Australian standards are met.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -287,55 +346,67 @@
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="logo-container" style="margin-bottom: 20px;">
-                    <img src="images/ssswa.svg" alt="SSSWA Logo" style="height: 40px;">
+                <div class="logo-container" style="margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                    <img src="images/sswa.svg" alt="SSSWA Logo" style="height: 38px; width: auto;">
                     <div class="logo-text-wrapper">
-                        <strong style="font-size: 18px;">SITE & STRATA SOLUTIONS WA</strong>
-                        <span style="font-size: 9px;">BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTION</span>
+                        <strong style="font-size: 18px; color: #1a1a1a; display: block;">SITE & STRATA SOLUTIONS WA</strong>
+                        <span style="font-size: 10px; letter-spacing: 1.5px; color: #666; font-weight: bold; text-transform: uppercase;">BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTION</span>
                     </div>
                 </div>
                 <p>Trade-qualified maintenance and inspection specialists. Delivering quality service to Perth properties since 2010.</p>
             </div>
+
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="maintenance-renovation.html">Maintenance & Renovation</a></li>
                     <li><a href="rental-inspection.html">Rental Inspections</a></li>
-                    <li><a href="NDIS.html">NDIS Provider</a></li>
+                    <li><a href="NDIS.html">NDIS</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Service Areas</h4>
                 <p>Providing expert property services across all Perth regions including:</p>
-                <p style="font-weight: 400; color: #333; margin-top: 10px;">Joondalup • Stirling • Fremantle • Perth CBD • Midland • Rockingham • Mandurah</p>
+                <p>Joondalup • Stirling • Fremantle • Perth CBD • Midland • Rockingham • Mandurah</p>
             </div>
+
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <p><strong>Phone:</strong> 0401 544 111</p>
                 <p><strong>Email:</strong> enquiries@sitenstrata.com</p>
                 <p><strong>Hours:</strong> Mon - Sun: 9am - 6pm</p>
+                
                 <div class="social-links">
                     <a href="https://www.facebook.com/sitestratasolutionswa" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/sitestratasolutionswa" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
-
+        
         <div class="footer-bottom">
             <p>&copy; 2026 Site & Strata Solutions WA Pty Ltd. All Rights Reserved. Trade-Qualified Maintenance, Perth, Western Australia.</p>
         </div>
     </footer>
 
     <script>
+        const observerOptions = { threshold: 0.15 };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('reveal-visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                }
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, observerOptions);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
