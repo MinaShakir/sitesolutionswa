@@ -145,6 +145,14 @@
             text-align: center; margin-top: 60px; padding-top: 25px; 
             border-top: 1px solid #eee; font-size: 12px; color: #999; 
         }
+        /* ADD THIS SECTION TO FIX THE BOLD CITIES */
+        .footer-col p { 
+        font-family: var(--font-body); 
+        font-weight: 400; /* This forces the text to be normal/not bold */
+        line-height: 1.8; 
+        color: #555; 
+        margin-bottom: 15px; 
+        }
 
         .social-icons { margin-top: 20px; display: flex; gap: 15px; }
         .social-icons a { color: #333; font-size: 24px; }
@@ -180,7 +188,13 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="ndis.html" class="active">NDIS</a></li>
-                <li><a href="#">Services <i class="fas fa-caret-down"></i></a></li>
+                <li>
+                        <a href="#">Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="maintenance-renovation.html">Maintenance & Renovation</a>
+                            <a href="rental-inspection.html">Rental Inspection</a>
+                        </div>
+                    </li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
