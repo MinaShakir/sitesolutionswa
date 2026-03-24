@@ -105,50 +105,45 @@
             padding-bottom: 2px;
         }
 
-        /* 1. Position the parent list item */
-        nav li {
-        position: relative;
-        display: inline-block;
-        }
-
-        /* 2. Hide the dropdown by default */
-        .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 100%; /* Sits exactly below the nav item */
-        left: 0;
-        background-color: var(--white);
-        min-width: 200px;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-        z-index: 1000;
-        border: 1px solid #eee;
-    
-      /* THE BRIDGE: This invisible padding ensures the menu 
-       doesn't disappear when moving the mouse down */
-       padding-top: 15px; 
-       }
-
-      /* 3. Show the menu when hovering over the parent LI */
-      nav li:hover .dropdown-content {
-      display: block;
+        /* Ensure the parent <li> is the reference point */
+      nav li {
+      position: relative;
+      display: inline-block;
       }
 
-     /* 4. Style the actual links */
-     .dropdown-content a {
-      background-color: var(--white);
-      color: #333;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      font-size: 13px;
-      text-transform: none; /* Makes it easier to read */
-      border-bottom: 1px solid #f9f9f9;
-      transition: 0.2s;
-      }
+     .dropdown-content {
+     display: none;
+     position: absolute;
+     top: 100%;
+     left: 0;
+     background-color: var(--white);
+     min-width: 240px; /* Slightly wider to prevent text wrapping */
+     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+     z-index: 2001;
+     border: 1px solid #eee;
+     padding: 0; /* Remove padding that might cause shifts */
+     }
 
-    .dropdown-content a:hover {
-    color: var(--primary-orange) !important;
-    background-color: #fff5f4;
+    /* Force links to stack vertically */
+    .dropdown-content a {
+    display: block; /* This ensures they take up the full width and stack */
+    width: 100%;
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: none;
+    border-bottom: 1px solid #f1f1f1;
+    text-align: left; /* Keep text aligned to the left */
+    }
+
+    .dropdown-content a:last-child {
+    border-bottom: none;
+    }
+
+    /* Hover logic */
+    nav li:hover .dropdown-content {
+    display: block;
     }
         /* --- NDIS HERO PILLAR --- */
         .ndis-hero {
