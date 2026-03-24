@@ -105,35 +105,32 @@
         }
 
         .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: var(--white);
-        min-width: 260px; /* Slightly wider to fit the long text on one line */
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-        z-index: 2001;
-        top: 100%;
-        left: 0;
-        border: 1px solid #eee;
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 2001;
+            top: 100%;
+            left: 0;
+            border: 1px solid #eee;
+            margin-top: 10px;
         }
 
-       .dropdown-content a {
-       color: #333;
-       padding: 12px 16px;
-       text-decoration: none;
-       display: block; /* This forces the link to take up the full width */
-       width: 100%;    /* Ensures it pushes the next item to a new line */
-       font-size: 12px;
-       text-transform: uppercase;
-       border-bottom: 1px solid #eee;
-       transition: background 0.3s;
-       font-family: var(--font-sub-headings);
-       white-space: nowrap; /* Prevents the text itself from wrapping to a 3rd line */
-       }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s;
+            font-family: var(--font-sub-headings);
+        }
 
-       /* Removes the border from the very last item in the list */
-      .dropdown-content a:last-child {
-      border-bottom: none;
-      }
+        .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary-orange); }
+        nav li:hover .dropdown-content { display: block; }
         /* --- ABOUT PILLAR --- */
         .about-pillar {
             max-width: 1200px;
