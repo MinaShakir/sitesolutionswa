@@ -101,74 +101,74 @@
         nav a:hover, .active-page { color: var(--primary-orange); }
 
         /* --- UPDATED NAVIGATION FOR ALIGNMENT --- */
-nav ul { 
-    list-style: none; 
-    display: flex; 
-    gap: 30px; 
-    align-items: center; 
-    position: relative;
-}
+       nav ul { 
+          list-style: none; 
+          display: flex; 
+          gap: 30px; 
+          align-items: center; 
+          position: relative;
+       }
 
-nav li { 
-    position: relative; /* This is the anchor for the dropdown */
-    padding: 10px 0;    /* Adds a hit-area so the menu doesn't flicker */
-}
+      nav li { 
+          position: relative; /* This is the anchor for the dropdown */
+          padding: 10px 0;    /* Adds a hit-area so the menu doesn't flicker */
+       }
 
-nav a { 
-    color: #333; 
-    text-decoration: none; 
-    font-weight: 600; 
-    font-size: 13px; 
-    text-transform: uppercase; 
-    transition: 0.3s; 
-    font-family: var(--font-sub-headings);
-    display: block;
-}
+      nav a { 
+          color: #333; 
+          text-decoration: none; 
+          font-weight: 600; 
+          font-size: 13px; 
+          text-transform: uppercase; 
+          transition: 0.3s; 
+          font-family: var(--font-sub-headings);
+          display: block;
+       }
 
-/* --- THE DROPDOWN BOX --- */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--white);
-    min-width: 220px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-    z-index: 2001;
+      /* --- THE DROPDOWN BOX --- */
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: var(--white);
+          min-width: 220px;
+          box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+          z-index: 2001;
     
-    /* This moves it exactly below the nav item */
-    top: 100%; 
-    left: 50%;
-    transform: translateX(-50%); /* Centers the dropdown under the word 'Services' */
+     /* This moves it exactly below the nav item */
+         top: 100%; 
+         left: 50%;
+         transform: translateX(-50%); /* Centers the dropdown under the word 'Services' */
     
-    border-top: 3px solid var(--primary-orange); /* Adds that professional top-bar */
-    padding: 0;
-}
+         border-top: 3px solid var(--primary-orange); /* Adds that professional top-bar */
+         padding: 0;
+     }
 
-/* --- SHOW ON HOVER --- */
-nav li:hover .dropdown-content { 
-    display: block; 
-}
+     /* --- SHOW ON HOVER --- */
+     nav li:hover .dropdown-content { 
+     display: block; 
+     }
 
-/* --- DROPDOWN LINKS --- */
-.dropdown-content a {
-    color: #333;
-    padding: 12px 20px;
-    text-decoration: none;
-    display: block;
-    font-size: 12px;
-    text-align: left;
-    border-bottom: 1px solid #f1f1f1;
-    transition: 0.2s;
-}
+    /* --- DROPDOWN LINKS --- */
+    .dropdown-content a {
+       color: #333;
+       padding: 12px 20px;
+       text-decoration: none;
+       display: block;
+       font-size: 12px;
+       text-align: left;
+       border-bottom: 1px solid #f1f1f1;
+       transition: 0.2s;
+     }
 
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
+    .dropdown-content a:last-child {
+       border-bottom: none;
+    }
 
-.dropdown-content a:hover { 
-    background-color: #f9f9f9; 
-    color: var(--primary-orange); 
-    padding-left: 25px; /* Subtle slide-in effect on hover */
-}
+    .dropdown-content a:hover { 
+        background-color: #f9f9f9; 
+        color: var(--primary-orange); 
+        padding-left: 25px; /* Subtle slide-in effect on hover */
+    }
         
         /* --- NDIS HERO PILLAR --- */
         .ndis-hero {
