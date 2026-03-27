@@ -93,27 +93,50 @@
         nav a { color: var(--dark-grey); text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: color 0.3s; padding: 10px 0; }
         nav a:hover { color: var(--primary-orange); }
         
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 220px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            top: 100%;
-            left: 0;
-            border: 1px solid #eee;
-        }
-        .dropdown-content a {
-            color: var(--dark-grey);
-            padding: 12px 20px;
-            display: block;
-            text-transform: uppercase;
-            font-size: 12px;
-            border-bottom: 1px solid #eee;
-        }
-        .dropdown-content a:hover { background-color: #f9f9f9; color: var(--primary-orange); }
-        nav li:hover .dropdown-content { display: block; }
-        .active-page { border-bottom: 2px solid var(--primary-orange); padding-bottom: 4px; }
+       /* Dropdown container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 220px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    top: calc(100% + 2px); /* accounts for active-page border */
+    left: 0;
+    right: auto;           /* prevents snapping to the right */
+    border: 1px solid #eee;
+    z-index: 9999;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    color: var(--dark-grey);
+    padding: 12px 20px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+}
+
+/* Hover effect */
+.dropdown-content a:hover { 
+    background-color: #f9f9f9; 
+    color: var(--primary-orange); 
+}
+
+/* Show dropdown on hover or focus */
+nav li:hover .dropdown-content,
+nav li:focus-within .dropdown-content { 
+    display: block; 
+}
+
+/* Active page styling */
+.active-page { 
+    border-bottom: 2px solid var(--primary-orange); 
+    padding-bottom: 4px; 
+    box-sizing: border-box;  /* prevents layout shift */
+    position: relative;      /* keeps dropdown aligned */
+}
 
         /* --- HERO SECTION --- */
         .hero {
