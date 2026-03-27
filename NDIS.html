@@ -169,6 +169,52 @@ nav li:hover .dropdown-content {
     color: var(--primary-orange); 
     padding-left: 25px; /* Subtle slide-in effect on hover */
 }
+        /* --- FIX FOR UNIFORM SPACING & JUMPING --- */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0; /* We will use padding on the links instead for better control */
+}
+
+nav ul li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Apply the same padding to every link so they sit evenly */
+nav ul li > a {
+    padding: 15px 20px; 
+    display: block;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Ensure the Dropdown doesn't "push" other elements */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Sits exactly below the header */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the menu under 'Services' */
+    min-width: 250px;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    z-index: 9999;
+    border-top: 3px solid var(--primary-orange);
+}
+
+/* This keeps the menu open if the user moves the mouse slightly off */
+nav li:hover .dropdown-content {
+    display: block;
+}
+
+/* Adjust the icon spacing so it doesn't shift the text */
+nav li a span.arrow {
+    margin-left: 5px;
+    font-size: 10px;
+    vertical-align: middle;
+}
         /* --- NDIS HERO PILLAR --- */
         .ndis-hero {
             background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
@@ -299,11 +345,12 @@ nav li:hover .dropdown-content {
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="NDIS.html" class="active-page">NDIS</a></li>
-                    <li class="dropdown">
-                    <a href="#" onclick="return false;">Services ▾</a>
-                    <div class="dropdown-content">
-                         <a href="maintenance-renovation.html">Maintenance & Renovation</a>
-                         <a href="rental-inspection.html">Rental Inspection</a>
+                    <li>
+                        <a href="#">Services <span class="arrow">▾</span></a>
+                        <div class="dropdown-content">
+                              <a href="maintenance-renovation.html">Maintenance & Renovation</a>
+                              <a href="rental-inspection.html">Rental Inspection</a>
+                       </div>
                     </li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
