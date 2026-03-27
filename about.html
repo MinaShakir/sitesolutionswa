@@ -99,38 +99,74 @@
         nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; font-family: var(--font-sub-headings); }
         nav a:hover, .active-page { color: var(--primary-orange); }
 
-        .active-page {
-            border-bottom: 2px solid var(--primary-orange);
-            padding-bottom: 2px;
-        }
+           /* --- UPDATED NAVIGATION FOR ALIGNMENT --- */
+       nav ul { 
+          list-style: none; 
+          display: flex; 
+          gap: 30px; 
+          align-items: center; 
+          position: relative;
+       }
 
-         .dropdown-content {
-       display: none;
-       position: absolute;
-       background-color: var(--white);
-       min-width: 220px;
-       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-       z-index: 2001;
-       top: 100%; /* Sits exactly at the bottom of the Nav bar */
-       left: 0;
-       border: 1px solid #eee;
-      /* margin-top: 10px;  <-- REMOVE THIS to stop the flickering */
-      }
+      nav li { 
+          position: relative; /* This is the anchor for the dropdown */
+          padding: 10px 0;    /* Adds a hit-area so the menu doesn't flicker */
+       }
 
-      /* This creates an invisible "bridge" so the mouse doesn't leave the hover zone */
-    .dropdown-content::before {
-    content: "";
-    position: absolute;
-    top: -15px; /* Adjust this to match how much space you want above the menu */
-    left: 0;
-    width: 100%;
-    height: 15px;
-    background: transparent;
+      nav a { 
+          color: #333; 
+          text-decoration: none; 
+          font-weight: 600; 
+          font-size: 13px; 
+          text-transform: uppercase; 
+          transition: 0.3s; 
+          font-family: var(--font-sub-headings);
+          display: block;
+       }
+
+      /* --- THE DROPDOWN BOX --- */
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: var(--white);
+          min-width: 220px;
+          box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+          z-index: 2001;
+    
+     /* This moves it exactly below the nav item */
+         top: 100%; 
+         left: 50%;
+         transform: translateX(-50%); /* Centers the dropdown under the word 'Services' */
+    
+         border-top: 3px solid var(--primary-orange); /* Adds that professional top-bar */
+         padding: 0;
+     }
+
+     /* --- SHOW ON HOVER --- */
+     nav li:hover .dropdown-content { 
+     display: block; 
+     }
+
+    /* --- DROPDOWN LINKS --- */
+    .dropdown-content a {
+       color: #333;
+       padding: 12px 20px;
+       text-decoration: none;
+       display: block;
+       font-size: 12px;
+       text-align: left;
+       border-bottom: 1px solid #f1f1f1;
+       transition: 0.2s;
+     }
+
+    .dropdown-content a:last-child {
+       border-bottom: none;
     }
 
-    /* If you want a visual gap, add margin-top to the FIRST link inside instead */
-    .dropdown-content a:first-child {
-    margin-top: 5px;
+    .dropdown-content a:hover { 
+        background-color: #f9f9f9; 
+        color: var(--primary-orange); 
+        padding-left: 25px; /* Subtle slide-in effect on hover */
     }
 
         /* --- ABOUT PILLAR --- */
@@ -311,11 +347,11 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html" class="active-page">About Us</a></li>
                     <li><a href="NDIS.html">NDIS</a></li>
-                    <li>
-                        <a href="#">Services ▾</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Services ▾</a>
                         <div class="dropdown-content">
-                            <a href="maintenance-renovation.html">Maintenance & Renovation</a>
-                            <a href="rental-inspection.html">Rental Inspection</a>
+                             <a href="maintenance-renovation.html">Maintenance & Renovation</a>
+                             <a href="rental-inspection.html">Rental Inspection</a>
                         </div>
                     </li>
                     <li><a href="blog.html">Blog</a></li>
