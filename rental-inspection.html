@@ -82,14 +82,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .logo-container { color: var(--dark-grey); line-height: 1.1; text-decoration: none; display: flex; align-items: center; gap: 15px; }
+        
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            text-decoration: none;
+        }
         .header-logo { height: 50px; width: auto; }
-        .logo-container strong { font-size: 22px; display: block; letter-spacing: 1px; color: var(--dark-grey); }
-        .logo-container span { font-family: var(--font-sub-headings); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #666; }
+        .logo-text-wrapper { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-container strong { font-size: 22px; color: #1a1a1a; display: block; letter-spacing: 1px; }
+        .logo-container span { font-family: var(--font-sub-headings); font-size: 11px; color: #666; letter-spacing: 2px; text-transform: uppercase; }
 
-        nav ul { list-style: none; display: flex; gap: 20px; }
-        nav a { color: var(--dark-grey); text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; padding: 10px 0; }
+        nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
+        nav li { position: relative; }
+        nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; font-family: var(--font-sub-headings); }
         nav a:hover { color: var(--primary-orange); }
         
         .dropdown-content {
