@@ -228,6 +228,19 @@
             nav ul { gap: 8px; }
             nav a { font-size: 10px; }
         }
+        /* Mobile View Adjustment */
+     @media (max-width: 768px) {
+    .image-pair-gallery {
+        display: flex;
+        flex-direction: column; /* This stacks the images vertically */
+        gap: 15px; /* Adds a small space between the two images */
+    }
+
+    .image-pair-gallery img {
+        width: 100%; /* Makes images fill the width of the phone screen */
+        height: auto;
+    }
+}
     </style>
 </head>
 <body>
