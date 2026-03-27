@@ -8,7 +8,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -272,53 +273,34 @@
         .social-icon:hover { color: var(--primary-orange); transform: translateY(-3px); }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; font-family: var(--font-body); color: #999; }
 
-        /* --- MOBILE ADJUSTMENTS (Keep your code, just make it responsive) --- */
+        /* --- MOBILE RESPONSIVE UPDATES --- */
         @media (max-width: 768px) {
-            header { 
-                flex-direction: column; 
-                padding: 15px 5%; 
-                gap: 15px; 
-            }
-            .logo-container { 
-                flex-direction: column; 
-                text-align: center; 
-                gap: 8px;
-            }
+            header { padding: 20px 5%; flex-direction: column; gap: 20px; }
+            .logo-container { width: 100%; justify-content: center; text-align: center; }
             .header-logo { height: 40px; }
             .logo-container strong { font-size: 16px; }
-            .logo-container span { font-size: 9px; letter-spacing: 1px; }
+            .logo-container span { font-size: 9px; }
 
-            nav ul { 
-                gap: 10px; 
-                justify-content: center; 
-                flex-wrap: wrap; 
-            }
+            nav ul { gap: 12px; justify-content: center; flex-wrap: wrap; }
             nav a { font-size: 11px; }
 
             .top-info-bar { 
                 flex-direction: column; 
+                text-align: center; 
                 padding: 10px; 
-                gap: 5px;
-                text-align: center;
+                gap: 5px; 
             }
+            .top-info-bar div { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .top-info-bar a { margin-left: 0; font-size: 12px; }
 
-            .story-section h1 { font-size: 2rem; }
-            .story-section p { font-size: 1rem; padding: 0 10px; }
+            .hero { padding: 100px 20px; }
+            .pillar-section h2.section-title { font-size: 1.8rem; }
+        }
 
-            .lead-section { 
-                padding: 60px 20px; 
-                background-attachment: scroll; /* Fixed BG sometimes glitches on mobile */
-            }
-            .lead-section h2 { font-size: 1.8rem; }
-            
-            .column-grid { flex-direction: column; gap: 20px; }
-            .column-item { min-width: 100%; padding: 30px 15px; }
-
-            .values-section { 
-                grid-template-columns: 1fr; 
-                margin: 40px 0;
-            }
+        @media (max-width: 480px) {
+            .logo-container strong { font-size: 14px; }
+            nav ul { gap: 8px; }
+            nav a { font-size: 10px; }
         }
     </style>
 </head>
