@@ -105,63 +105,52 @@
             padding-bottom: 2px;
         }
 
-       /* 1. The Anchor: This MUST be on the 'li' to keep the menu from jumping */
+       nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  position: relative;
+}
+
 nav li.dropdown {
-    position: relative; /* This locks the dropdown to this specific list item */
-    display: inline-block;
+  position: relative; /* anchor for dropdown */
 }
 
-/* 2. The Box: Resetting all flex/grid inherited traits */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;           /* This keeps it aligned to the left of the 'Services' text */
-    background-color: #ffffff;
-    min-width: 250px;  /* Fixed width stops it from 'shrinking' or 'growing' */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-    z-index: 9999;     /* Ensures it stays on top of all images/headers */
-    border: 1px solid #eee;
-    padding: 0;
-    
-    /* Forces vertical stacking */
-    flex-direction: column !important; 
+  display: none;
+  position: absolute;
+  top: 100%;   /* directly below parent */
+  left: 0;     /* lock to left edge */
+  right: auto; /* prevent snapping right */
+  background: #fff;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+  border: 1px solid #eee;
+  z-index: 9999;
+  flex-direction: column;
 }
 
-/* 3. The Links: Force them to be full-width rows */
 .dropdown-content a {
-    display: block !important; /* This is the fix for the side-by-side issue */
-    width: 100% !important;
-    padding: 15px 20px;
-    color: #333 !important;
-    text-decoration: none;
-    text-align: left;
-    font-size: 14px;
-    border-bottom: 1px solid #f5f5f5;
-    transition: background 0.3s;
-    text-transform: none; /* Keeps it readable */
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #f5f5f5;
 }
 
-/* 4. Hover effect for the individual items */
 .dropdown-content a:hover {
-    background-color: #fff5f4;
-    color: var(--primary-orange) !important;
+  background: #fff5f4;
+  color: #e67e22; /* example orange */
 }
 
-/* 5. The Trigger: Keep it simple */
-nav li:hover .dropdown-content {
-    display: flex !important;
-}
-
-/* 6. The Bridge: Fills the gap so the menu doesn't close when moving mouse */
-.dropdown-content::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    background: transparent;
+nav li.dropdown:hover .dropdown-content,
+nav li.dropdown:focus-within .dropdown-content {
+  display: flex; /* works on hover and click */
 }
         /* --- NDIS HERO PILLAR --- */
         .ndis-hero {
@@ -293,12 +282,11 @@ nav li:hover .dropdown-content {
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="NDIS.html" class="active-page">NDIS</a></li>
-                    <li>
-                        <a href="#">Services ▾</a>
-                        <div class="dropdown-content">
-                            <a href="maintenance-renovation.html">Maintenance & Renovation</a>
-                            <a href="rental-inspection.html">Rental Inspection</a>
-                        </div>
+                    <li class="dropdown">
+                    <a href="#" onclick="return false;">Services ▾</a>
+                    <div class="dropdown-content">
+                         <a href="maintenance-renovation.html">Maintenance & Renovation</a>
+                         <a href="rental-inspection.html">Rental Inspection</a>
                     </li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
