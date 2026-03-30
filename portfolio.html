@@ -186,8 +186,23 @@
         .btn-large:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(235, 84, 68, 0.4); }
 
         /* --- FOOTER --- */
-        .main-footer { background-color: var(--white); color: #444; padding: 70px 5% 20px; font-size: 14px; border-top: 1px solid #eee; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+       .main-footer { 
+    background-color: var(--white); 
+    color: #444; 
+    padding: 70px 5% 20px; 
+    font-size: 14px; 
+    border-top: 1px solid #eee;
+    clear: both; /* Ensures it stays below all floated/grid content */
+    width: 100%;
+}
+
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 40px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
         .footer-col h4 { color: #1a1a1a; margin-bottom: 25px; font-size: 16px; text-transform: uppercase; border-bottom: 2px solid var(--primary-orange); display: inline-block; padding-bottom: 5px; }
         .footer-col p { font-family: var(--font-body); margin-bottom: 15px; line-height: 1.8; color: #555; }
         .footer-col ul { list-style: none; font-family: var(--font-sub-headings); }
@@ -346,8 +361,8 @@
         <h3>Ramp Paint Restoration</h3>
         <p>High-visibility safety line repainting and commercial ramp maintenance to ensure OHS compliance for Perth strata and business complexes.</p>
         <div class="image-pair-gallery">
-            <img src="images/Ramp-paint-after.jpg" alt="High visibility safety line painting Perth" onerror="this.onerror=null;this.src='https://placehold.co/350x250/1e1e1e/ffffff?text=Safety+Restoration';">
-            <img src="images/Ramp-paint-after.jpg" alt="Restored commercial safety ramp markings Perth" onerror="this.onerror=null;this.src='https://placehold.co/350x250/1e1e1e/ffffff?text=Safety+Restoration';">
+            <img src="images/commercial-ramp-maintenance-perth.jpg" alt="High visibility safety line painting Perth" onerror="this.onerror=null;this.src='https://placehold.co/350x250/1e1e1e/ffffff?text=Safety+Restoration';">
+            <img src="images/safety-line-painting-ohs-perth.jpg" alt="Restored commercial safety ramp markings Perth" onerror="this.onerror=null;this.src='https://placehold.co/350x250/1e1e1e/ffffff?text=Safety+Restoration';">
         </div>
     </div>
 
