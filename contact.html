@@ -175,37 +175,42 @@
             </div>
         </div>
 
-        <div class="contact-form-container reveal">
-            <form action="POST">
-              <input type="hidden" name="_next" value="https://sitenstrata.com/thankyou.html">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="Your Phone Number" required>
-                </div>
-                <div class="form-group">
-                    <label>Service Required</label>
-                    <select required>
-                        <option value="">Select a Service</option>
-                        <option value="maintenance">Building Maintenance</option>
-                        <option value="renovation">Home Renovation</option>
-                        <option value="inspection">Rental/Common-Area Inspection</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Project Details</label>
-                    <textarea placeholder="Please describe how we can help you..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
+       <form id="contact-form" action="https://formspree.io/f/mgolvqbk" method="POST">
+    
+    <input type="hidden" name="_next" value="https://sitenstrata.com/thankyou.html">
+    
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Your Email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+    </div>
+
+    <div class="form-group">
+        <label>Service Required</label>
+        <select id="service-select" name="service" required>
+            <option value="">Select a Service</option>
+            <option value="maintenance">Building Maintenance</option>
+            <option value="renovation">Home Renovation</option>
+            <option value="inspection">Rental/Common-Area Inspection</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Project Details</label>
+        <textarea name="message" placeholder="Please describe how we can help you..."></textarea>
+    </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+        </form>
     </main>
 
      <footer class="main-footer">
@@ -273,21 +278,25 @@
         });
     </script>
     <script>
-    const contactForm = document.querySelector('.contact-form-container form');
-    const serviceSelect = document.getElementById('service-select');
+    document.addEventListener("DOMContentLoaded", () => {
+        const contactForm = document.getElementById('contact-form');
+        const serviceSelect = document.getElementById('service-select');
 
-    // Replace these with your actual Formspree Unique Keys
-    const maintenanceID = "mgolvqbk"; // Linked to enquiries@sitenstrata.com
-    const inspectionID = "xojnvbze";   // Linked to inspections@sitenstrata.com
+        // Your Formspree IDs
+        const maintenanceID = "mgolvqbk"; // goes to enquiries@sitenstrata.com
+        const inspectionID = "xojnvbze";  // goes to inspections@sitenstrata.com
 
-    serviceSelect.addEventListener('change', function() {
-        if (this.value === 'inspection') {
-            // Route to Inspections email
-            contactForm.action = `https://formspree.io/f/${inspectionID}`;
-        } else {
-            // Default: Route everything else to Enquiries email
-            contactForm.action = `https://formspree.io/f/${maintenanceID}`;
-        }
+        serviceSelect.addEventListener('change', function() {
+            if (this.value === 'inspection') {
+                // Route to Inspections
+                contactForm.action = `https://formspree.io/f/${inspectionID}`;
+                console.log("Routing to Inspections Email");
+            } else {
+                // Route to Maintenance/Renovations
+                contactForm.action = `https://formspree.io/f/${maintenanceID}`;
+                console.log("Routing to General Enquiries Email");
+            }
+        });
     });
 </script>
 </body>
