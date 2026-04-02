@@ -89,8 +89,34 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal-visible { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 992px) { .contact-section { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { header { flex-direction: column; gap: 20px; } nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; } }
+       /* --- MOBILE RESPONSIVE UPDATES --- */
+        @media (max-width: 992px) {
+            .contact-section { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 20px 5%; flex-direction: column; gap: 20px; }
+            .logo-container { width: 100%; justify-content: center; text-align: center; }
+            .header-logo { height: 40px; }
+            .logo-container strong { font-size: 16px; }
+            .logo-container span { font-size: 9px; }
+
+            nav ul { gap: 12px; justify-content: center; flex-wrap: wrap; }
+            nav a { font-size: 11px; }
+
+            .top-info-bar { flex-direction: column; text-align: center; padding: 10px; gap: 5px; }
+            .top-info-bar div { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .top-info-bar a { margin-left: 0; font-size: 12px; }
+
+            .contact-hero { padding: 100px 20px; }
+            .contact-form-container { padding: 25px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container strong { font-size: 14px; }
+            nav ul { gap: 8px; }
+            nav a { font-size: 10px; }
+        }
     </style>
 </head>
 <body>
