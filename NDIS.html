@@ -182,7 +182,7 @@
             color: var(--white);
             text-align: center;
         }
-        .ndis-main-logo { max-width: 180px; filter: brightness(0) invert(1); margin-bottom: 25px; }
+        .ndis-main-logo { max-width: 180px; margin-bottom: 25px; }
         .registration-badge {
             background: var(--white);
             color: var(--dark-bg);
@@ -290,6 +290,40 @@
             nav ul { gap: 8px; }
             nav a { font-size: 10px; }
         }
+        /* --- NDIS SERVICES MOBILE STACKING --- */
+@media (max-width: 992px) {
+    .ndis-grid {
+        /* Change from 3 columns to 1 column */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .ndis-card {
+        /* Reduce padding slightly for mobile screens */
+        padding: 35px 25px;
+    }
+
+    .ndis-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .ndis-hero h1 {
+        font-size: 2.2rem; /* Make sure the hero text doesn't overflow */
+    }
+}
+
+/* Adjustments for extra small phones */
+@media (max-width: 480px) {
+    .ndis-card .icon-wrap {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -348,17 +382,17 @@
 
         <div class="ndis-grid">
             <div class="ndis-card reveal">
-                <span class="icon-wrap">🏠</span>
+                <span class="icon-wrap"><i class="fas fa-home-user"></i></span>
                 <h3>Home Modifications</h3>
                 <p>Installation of ramps, grab rails, widening doorways, and threshold leveling to improve accessibility and independence.</p>
             </div>
             <div class="ndis-card reveal">
-                <span class="icon-wrap">🛠️</span>
+                <span class="icon-wrap"><i class="fas fa-tools"></i></span>
                 <h3>General Maintenance</h3>
                 <p>Yard clean-ups, gutter cleaning, smoke alarm checks, and general repairs to keep your home safe and functional.</p>
             </div>
             <div class="ndis-card reveal">
-                <span class="icon-wrap">🚿</span>
+                <span class="icon-wrap"><i class="fas fa-shower"></i></span>
                 <h3>Bathroom Upgrades</h3>
                 <p>Modifying bathrooms with accessible tapware, handheld showers, and non-slip surface treatments for daily safety.</p>
             </div>
