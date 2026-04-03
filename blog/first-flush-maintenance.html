@@ -33,7 +33,7 @@
         .reveal-visible { opacity: 1; transform: translateY(0); visibility: visible; }
 
         /* --- NAVIGATION & TOP BAR --- */
-        #main-nav-container { position: relative; width: 100%; z-index: 2000; }
+        .main-nav-container { position: relative; width: 100%; z-index: 2000; }
         .top-info-bar { background-color: var(--primary-orange); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-family: var(--font-sub-headings); color: white; }
         .top-info-bar a { color: white; text-decoration: none; font-weight: bold; margin-left: 15px; }
         .emergency-label { color: white; font-weight: bold; display: flex; align-items: center; gap: 5px; }
@@ -47,28 +47,32 @@
         nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; font-family: var(--font-sub-headings); transition: 0.3s; }
         nav a:hover { color: var(--primary-orange); }
 
-        /* --- THE DROPDOWN BOX --- */
-      .dropdown-content {
-          display: none;
-          position: absolute;
-          background-color: var(--white);
-          min-width: 220px;
-          box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-          z-index: 2001;
+        .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 220px;
+    background-color: var(--white);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 2001;
     
-     /* This moves it exactly below the nav item */
-         top: 100%; 
-         left: 50%;
-         transform: translateX(-50%); /* Centers the dropdown under the word 'Services' */
+    /* Alignment Logic */
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%); 
     
-         border-top: 3px solid var(--primary-orange); /* Adds that professional top-bar */
-         padding: 0;
-     }
+    border-top: 3px solid var(--primary-orange);
+    padding: 0;
+    margin: 0; /* Ensure no default margins are pushing it */
+    }
 
      /* --- SHOW ON HOVER --- */
      nav li:hover .dropdown-content { 
      display: block; 
      }
+        /* Add this to your styles */
+    nav ul li.dropdown {
+    position: relative; /* This ensures 'left: 50%' refers to this specific item */
+    }
 
     /* --- DROPDOWN LINKS --- */
     .dropdown-content a {
