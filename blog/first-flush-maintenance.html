@@ -47,11 +47,50 @@
         nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; font-family: var(--font-sub-headings); transition: 0.3s; }
         nav a:hover { color: var(--primary-orange); }
 
-        /* --- DROPDOWN --- */
-        .dropdown-content { display: none; position: absolute; background-color: var(--white); min-width: 220px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 2001; top: 100%; left: 50%; transform: translateX(-50%); border-top: 3px solid var(--primary-orange); }
-        nav li:hover .dropdown-content { display: block; }
-        .dropdown-content a { color: #333; padding: 12px 20px; text-decoration: none; display: block; font-size: 12px; text-align: left; border-bottom: 1px solid #f1f1f1; transition: 0.2s; }
-        .dropdown-content a:hover { background-color: #f9f9f9; color: var(--primary-orange); padding-left: 25px; }
+        /* --- THE DROPDOWN BOX --- */
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: var(--white);
+          min-width: 220px;
+          box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+          z-index: 2001;
+    
+     /* This moves it exactly below the nav item */
+         top: 100%; 
+         left: 50%;
+         transform: translateX(-50%); /* Centers the dropdown under the word 'Services' */
+    
+         border-top: 3px solid var(--primary-orange); /* Adds that professional top-bar */
+         padding: 0;
+     }
+
+     /* --- SHOW ON HOVER --- */
+     nav li:hover .dropdown-content { 
+     display: block; 
+     }
+
+    /* --- DROPDOWN LINKS --- */
+    .dropdown-content a {
+       color: #333;
+       padding: 12px 20px;
+       text-decoration: none;
+       display: block;
+       font-size: 12px;
+       text-align: left;
+       border-bottom: 1px solid #f1f1f1;
+       transition: 0.2s;
+     }
+
+    .dropdown-content a:last-child {
+       border-bottom: none;
+    }
+
+    .dropdown-content a:hover { 
+        background-color: #f9f9f9; 
+        color: var(--primary-orange); 
+        padding-left: 25px; /* Subtle slide-in effect on hover */
+    }
 
         /* --- BLOG CONTENT STYLES --- */
         .blog-wrapper { padding: 40px 5% 80px; max-width: 1000px; margin: 0 auto; }
