@@ -6,11 +6,58 @@ layout: null
 <head>
     <meta charset="UTF-8">
     {% include local-schema.html %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is included in your standard rental property inspection services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our rental property inspection services include photographic room-by-room assessments, compliance checks for smoke alarms and RCDs, and identifying visible maintenance hazards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do your PCR inspection services differ from a routine inspection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PCR inspection services provide a legal baseline of a property's condition at the start or end of a tenancy, while routine inspections are periodic checks focused on ongoing maintenance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the advantage of using maintenance-focused inspectors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our inspectors have a background in building maintenance, allowing them to spot early warning signs like moisture staining or structural hairline cracks that standard inspectors might miss."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should a PCR inspection be updated for a Perth property?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Western Australia, a new PCR is required at the start of every new tenancy to comply with local Perth rental regulations and protect property owners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you assist if maintenance issues are identified during an inspection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If an inspection identifies a concern, we can refer the issue to our licensed trade division for a separate, obligation-free repair quote."
+        }
+      }
+     ]
+    }
+    </script>
     <link rel="canonical" href="https://sitenstrata.com/rental-inspection/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rental Inspections & PCR Reports Perth | Site & Strata Solutions WA</title>
 
-    <meta name="description" content="Professional rental inspections & PCR reports in Perth. Trade-qualified property assessments and integrated maintenance solutions. Reliable service for property managers since 2010.">
+    <meta name="description" content="Expert rental property inspection services & PCR reports in Perth. We provide trade-qualified property assessments and maintenance solutions. Book your PCR today!">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -247,6 +294,49 @@ layout: null
         .social-icon:hover { color: var(--primary-orange); transform: translateY(-3px); }
         .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #999; }
 
+      /* --- FAQ Accordion Styles --- */
+.faq-container { padding-top: 0; padding-bottom: 60px; }
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid #eee; margin-bottom: 5px; }
+.faq-accordion {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 20px 0;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: var(--font-sub-headings);
+    color: var(--medium-grey);
+    transition: 0.3s;
+}
+.faq-plus-icon {
+    font-size: 1.5rem;
+    color: var(--primary-orange); /* Or #eb5444 from your root */
+    font-family: var(--font-body);
+}
+.faq-question { flex: 1; }
+.faq-panel {
+    background-color: var(--light-bg);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+    border-left: 2px solid var(--primary-orange);
+}
+.faq-panel p {
+    padding: 25px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+/* When an accordion is open, change background and plus to a minus */
+.faq-accordion.active { background-color: var(--light-bg); padding-left: 10px; padding-right: 10px; border-radius: 4px; }
+.faq-accordion.active .faq-plus-icon { color: var(--medium-grey); opacity: 0.7; transform: rotate(45deg); transition: 0.3s transform ease; }
         /* --- MOBILE RESPONSIVE UPDATES --- */
         @media (max-width: 768px) {
             header { padding: 20px 5%; flex-direction: column; gap: 20px; }
@@ -292,7 +382,7 @@ layout: null
 
         <header>
             <a href="/" class="logo-container">
-                <img src="/images/sswa.svg" alt="SSSWA Logo" class="header-logo">
+                <img src="/images/sswa.svg" alt="Site and Strata Solutions WA - Rental Property Inspection Services Perth" class="header-logo">
                 <div class="logo-text-wrapper">
                     <strong>SITE & STRATA SOLUTIONS WA</strong>
                     <span>BUILDING MAINTENANCE, RENOVATION & RENTAL INSPECTION</span>
@@ -319,7 +409,7 @@ layout: null
     </div>
 
     <section class="hero reveal">
-        <h1>Professional Rental Inspections Perth</h1>
+        <h1>Rental Property Inspection Services & PCR Reports Perth</h1>
         <p>Comprehensive condition reports and preventative maintenance assessments for Perth property managers and owners.</p>
     </section>
 
@@ -373,6 +463,60 @@ layout: null
                 </div>
             </div>
         </div>
+      
+      <div class="faq-list">
+
+    <div class="faq-item">
+        <button class="faq-accordion">
+            <span class="faq-plus-icon">+</span>
+            <span class="faq-question">What is included in your standard rental property inspection services?</span>
+        </button>
+        <div class="faq-panel">
+            <p>Our comprehensive <strong>rental property inspection services</strong> cover a detailed photographic assessment of your Perth property. We provide room-by-room condition checks, verify smoke alarm and RCD compliance, assess visible gutter and fascia integrity, and scan for signs of damp or water leaks.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-accordion">
+            <span class="faq-plus-icon">+</span>
+            <span class="faq-question">How do your PCR inspection services differ from a routine inspection?</span>
+        </button>
+        <div class="faq-panel">
+            <p>A PCR (Property Condition Report) is a mandatory legal document that records the property's condition at the start or end of a tenancy. Our <strong>PCR inspection services</strong> create a definitive record to protect against bond disputes. Routine inspections are periodic maintenance checks that focus on tenant care and identifying preventative repairs.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+    <button class="faq-accordion">
+        <span class="faq-plus-icon">+</span>
+        <span class="faq-question">What is the advantage of using maintenance-focused inspectors?</span>
+    </button>
+    <div class="faq-panel">
+        <p>Most <strong>rental property inspection services</strong> are conducted by general administrative staff. At Site & Strata, our background in building maintenance means we have a trained eye for "early warning signs"—such as subtle moisture staining, foundation hairline cracks, or gutter sagging. While our inspections are visual and non-invasive, we provide a more proactive assessment of your property's physical health.</p>
+    </div>
+</div>
+
+    <div class="faq-item">
+        <button class="faq-accordion">
+            <span class="faq-plus-icon">+</span>
+            <span class="faq-question">How often should a PCR inspection be updated for a Perth property?</span>
+        </button>
+        <div class="faq-panel">
+            <p>In Western Australia, a new PCR is required at the commencement of every new tenancy. Our <strong>PCR inspection services</strong> ensure that your documentation is always up to date with current REIWA standards and local Perth rental regulations, ensuring total compliance for property managers.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+    <button class="faq-accordion">
+        <span class="faq-plus-icon">+</span>
+        <span class="faq-question">Can you assist if maintenance issues are identified during an inspection?</span>
+    </button>
+    <div class="faq-panel">
+        <p>Absolutely. This is where Site & Strata provides unique value. If our <strong>rental property inspection services</strong> highlight a maintenance concern, we don't just leave you with a problem. We can refer the issue to our licensed trade maintenance division to provide a separate, obligation-free quote for repairs. This creates a seamless transition from identifying a maintenance risk to resolving it quickly.</p>
+    </div>
+</div>
+
+</div>
 
         <div class="report-highlight reveal">
             <div class="report-text">
@@ -451,6 +595,33 @@ layout: null
             const revealElements = document.querySelectorAll('.reveal');
             revealElements.forEach(el => observer.observe(el));
         });
+      /* --- FAQ Accordion Script --- */
+document.addEventListener("DOMContentLoaded", () => {
+    const accordions = document.querySelectorAll(".faq-accordion");
+
+    accordions.forEach(acc => {
+        acc.addEventListener("click", function() {
+            // Close any currently open panels first (for a true accordion effect)
+            document.querySelectorAll(".faq-accordion").forEach(otherAcc => {
+                if (otherAcc !== this && otherAcc.classList.contains("active")) {
+                    otherAcc.classList.remove("active");
+                    otherAcc.nextElementSibling.style.maxHeight = null;
+                }
+            });
+
+            // Toggle active class on the clicked accordion
+            this.classList.toggle("active");
+
+            // Open or close the panel
+            const panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    });
+});
     </script>
 
 </body>
