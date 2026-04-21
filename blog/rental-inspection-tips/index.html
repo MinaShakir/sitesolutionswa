@@ -1,0 +1,263 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include local-schema.html %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Perth Tenant’s Guide to Passing Inspections | SSSWA Blog</title>
+    <meta name="description" content="Expert maintenance tips for passing your Perth rental inspection. Protect your bond with professional insights from Site & Strata Solutions WA.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- EXACT Mirror of your Site Styles --- */
+        :root {
+            --primary-orange: #eb5444; 
+            --dark-bg: #1a1a1a;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --text-main: #333333;
+            --font-titles: 'Montserrat', sans-serif;
+            --font-sub-headings: 'Roboto Condensed', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); color: var(--text-main); line-height: 1.6; background-color: var(--white); overflow-x: hidden; }
+        h1, h2, h3, h4, .logo-container strong { font-family: var(--font-titles); }
+
+        /* --- SCROLL REVEAL --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; visibility: hidden; }
+        .reveal-visible { opacity: 1; transform: translateY(0); visibility: visible; }
+
+        /* --- NAVIGATION & TOP BAR --- */
+        .main-nav-container { position: relative; width: 100%; z-index: 2000; }
+        .top-info-bar { background-color: var(--primary-orange); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-family: var(--font-sub-headings); color: white; }
+        .top-info-bar a { color: white; text-decoration: none; font-weight: bold; margin-left: 15px; }
+        .emergency-label { color: white; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        
+        header { background-color: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .header-logo { height: 50px; width: auto; }
+        .logo-text-wrapper { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-container strong { font-size: 22px; color: #1a1a1a; display: block; letter-spacing: 1px; }
+        .logo-container span { font-family: var(--font-sub-headings); font-size: 11px; color: #666; letter-spacing: 2px; text-transform: uppercase; }
+        
+        nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
+        nav a { color: #333; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; font-family: var(--font-sub-headings); transition: 0.3s; }
+        nav a:hover { color: var(--primary-orange); }
+
+        .dropdown-content { display: none; position: absolute; min-width: 220px; background-color: var(--white); box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 2001; top: 100%; left: 50%; transform: translateX(-50%); border-top: 3px solid var(--primary-orange); padding: 0; margin: 0; }
+        nav li:hover .dropdown-content { display: block; }
+        nav ul li.dropdown { position: relative; }
+        .dropdown-content a { color: #333; padding: 12px 20px; text-decoration: none; display: block; font-size: 12px; text-align: left; border-bottom: 1px solid #f1f1f1; transition: 0.2s; }
+        .dropdown-content a:hover { background-color: #f9f9f9; color: var(--primary-orange); padding-left: 25px; }
+
+        /* --- BLOG CONTENT STYLES --- */
+        .blog-wrapper { padding: 40px 5% 80px; max-width: 1000px; margin: 0 auto; }
+        .blog-featured-image { width: 100%; max-height: 500px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; display: block; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .post-meta { display: flex; gap: 20px; margin-bottom: 25px; font-family: var(--font-sub-headings); font-size: 14px; text-transform: uppercase; font-weight: 600; color: #666; }
+        .post-meta i { color: #00a651; font-size: 16px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary-orange); font-family: var(--font-sub-headings); font-weight: bold; text-transform: uppercase; font-size: 14px; margin-bottom: 30px; transition: 0.3s; }
+        .back-link:hover { transform: translateX(-5px); color: var(--dark-bg); }
+
+        .blog-wrapper h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 25px; color: var(--dark-bg); line-height: 1.2; }
+        .blog-wrapper h2 { color: var(--primary-orange); margin: 40px 0 20px; font-size: 22px; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .blog-wrapper h3 { margin: 25px 0 10px; font-size: 19px; color: var(--dark-bg); }
+        .blog-wrapper p { font-size: 17px; margin-bottom: 20px; color: #444; }
+
+        .check-list { list-style: none; margin: 30px 0; }
+        .check-list li { padding: 15px 20px; background: var(--light-bg); margin-bottom: 12px; border-left: 5px solid var(--primary-orange); font-weight: 600; }
+        .check-list span { display: block; font-weight: 400; font-size: 15px; color: #666; margin-top: 5px; }
+
+        /* --- DOWNLOAD BOX --- */
+        .download-box { background: #fefefe; border: 2px dashed var(--primary-orange); padding: 35px; margin: 40px 0; border-radius: 12px; text-align: center; }
+        .download-box h3 { color: var(--dark-bg); margin-bottom: 10px; }
+        .download-btn { background-color: var(--primary-orange); color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; }
+        .download-btn:hover { background-color: var(--dark-bg); transform: scale(1.05); }
+
+        /* --- FOOTER --- */
+        .main-footer { background-color: var(--white); color: #444; padding: 70px 5% 20px; font-size: 14px; border-top: 1px solid #eee; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-col h4 { color: #1a1a1a; margin-bottom: 25px; font-size: 16px; text-transform: uppercase; border-bottom: 2px solid var(--primary-orange); display: inline-block; padding-bottom: 5px; }
+        .footer-col p { margin-bottom: 15px; line-height: 1.8; color: #555; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul a { color: #555; text-decoration: none; transition: 0.3s; }
+        .footer-col ul a:hover { color: var(--primary-orange); }
+        .social-links { margin-top: 20px; display: flex; gap: 15px; }
+        .social-icon { color: #333; font-size: 24px; transition: 0.3s; text-decoration: none; }
+        .social-icon:hover { color: var(--primary-orange); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #999; }
+
+        @media (max-width: 768px) {
+            header { padding: 20px 5%; flex-direction: column; gap: 20px; }
+            nav ul { gap: 12px; justify-content: center; flex-wrap: wrap; }
+            .top-info-bar { flex-direction: column; text-align: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-nav-container">
+        <div class="top-info-bar">
+            <span class="emergency-label">⚠️ 24-Hours Online Emergency Service</span>
+            <div>
+                <a href="tel:0401544111">📞 0401 544 111</a>
+                <a href="mailto:enquiries@sitenstrata.com">✉️ enquiries@sitenstrata.com</a>
+                <a href="#">🕒 Mon-Sun 9am-6pm</a>
+            </div>
+        </div>
+
+        <header>
+            <a href="/" class="logo-container">
+                <img src="/images/sswa.svg" alt="SSSWA Logo" class="header-logo">
+                <div class="logo-text-wrapper">
+                    <strong>SITE & STRATA SOLUTIONS WA </strong>
+                    <span>BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTIONS</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About Us</a></li>
+                    <li><a href="/NDIS/">NDIS</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="/maintenance-renovation/">Maintenance & Renovation</a>
+                            <a href="/rental-inspection/">Rental Inspection</a>
+                        </div>
+                    </li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/contact/">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <article class="blog-wrapper reveal">
+        <img src="/images/rental-inspection-perth.jpg" alt="Professional Rental Inspection in Perth" class="blog-featured-image">
+
+        <div class="post-meta">
+            <span><i class="fas fa-user"></i> By Site & Strata Solutions WA</span>
+            <span><i class="fas fa-calendar-alt"></i> 21 April 2026</span>
+        </div>
+
+        <a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Go Back to Insights</a>
+
+        <h1>How to Pass Your Rental Inspection: Tips from a Professional Perth Inspector</h1>
+        
+        <p>At <strong>Site & Strata Solutions WA</strong>, we see hundreds of properties across Perth. Whether it’s a routine check or a final vacate inspection, the goal is always the same: a well-maintained home and a protected bond. We’ve compiled the top areas where tenants often lose points—and how you can stay ahead of them.</p>
+
+        <h2>1. First Impressions: The Exterior</h2>
+        <p>In Western Australia, our sandy soil and dry heat make garden maintenance a challenge. Inspectors often make their assessment before even entering the home.</p>
+        <ul class="check-list">
+            <li>Weeding <span>Ensure limestone garden beds and paving are completely free of weeds.</span></li>
+            <li>Cobwebs <span>Use a long-handled broom to clear eaves, carports, and window frames.</span></li>
+            <li>Bins <span>Wash out your wheelie bins; it’s a small detail that shows the inspector the property is cared for.</span></li>
+        </ul>
+
+        <h2>2. The "Hidden" Dust Traps</h2>
+        <p>Inspectors look where most people forget to clean. These are the top reasons for follow-up inspections:</p>
+        <ul class="check-list">
+            <li>Exhaust Fans <span>Dust builds up quickly in bathroom and kitchen fans. A quick wipe prevents motor strain and looks great.</span></li>
+            <li>Sliding Door Tracks <span>Vacuum out the sand and debris from your tracks so they glide smoothly.</span></li>
+        </ul>
+
+        <h2>3. Wet Areas & Mold Prevention</h2>
+        <p>Perth winters can be damp, leading to moisture issues in high-use areas.</p>
+        <ul class="check-list">
+            <li>Grout <span>Use a soft brush to ensure bathroom grout is free of soap scum or orange mold.</span></li>
+            <li>Under Sinks <span>Check cupboards under kitchen and bathroom sinks for any slow leaks or moisture damage.</span></li>
+        </ul>
+
+        <h2>4. Walls and Floor Protection</h2>
+        <ul class="check-list">
+            <li>Scuffs <span>Use a "magic eraser" for light wall scuffs, but be careful not to rub off the paint.</span></li>
+            <li>Furniture Pads <span>Ensure heavy furniture has felt pads to avoid scratching floorboards or marking tiles.</span></li>
+        </ul>
+      
+      <div class="download-box">
+            <h3>Get the Complete Checklist</h3>
+            <p>Don't rely on memory. We've put our professional 4-point inspection criteria into a printable PDF guide.</p>
+            <a href="/assets/documents/Tenants_Vacate_Guide.pdf" download class="download-btn">
+                <i class="fas fa-file-pdf"></i> Download Free Tenant’s Vacate Guide (PDF)
+            </a>
+        </div>
+
+        <h2>Need Professional Help?</h2>
+        <p>Sometimes, a DIY clean isn't enough. If you’ve noticed a leaking tap, a damaged flyscreen, or gutters that need a deep clean before your inspection, give us a call. We specialize in "One-Call" maintenance to get your home inspection-ready.</p>
+        <p><a href="/contact/" style="color: var(--primary-orange); font-weight: bold; text-decoration: underline;">Contact Site & Strata Solutions today for a repair quote.</a></p>
+    </article>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-container" style="margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                    <img src="/images/sswa.svg" alt="SSSWA Logo" style="height: 38px; width: auto;">
+                    <div class="logo-text-wrapper">
+                        <strong style="font-size: 18px; color: #1a1a1a; display: block;">SITE & STRATA SOLUTIONS WA</strong>
+                        <span style="font-size: 10px; letter-spacing: 1.5px; color: #666; font-weight: bold; text-transform: uppercase;">BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTION</span>
+                    </div>
+                </div>
+                <p>Trade-qualified maintenance and inspection specialists. Delivering quality service to Perth properties since 2010.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/maintenance-renovation/">Maintenance & Renovation</a></li>
+                    <li><a href="/rental-inspection/">Rental Inspections</a></li>
+                    <li><a href="/NDIS/">NDIS Provider</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/contact/">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Service Areas</h4>
+                <p>Providing expert property services across all Perth regions including:</p>
+                <p>Joondalup • Stirling • Fremantle • Perth CBD • Midland • Rockingham • Mandurah</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><strong>Phone:</strong> 0401 544 111</p>
+                <p><strong>Email:</strong> enquiries@sitenstrata.com</p>
+                <p><strong>Hours:</strong> Mon - Sun: 9am - 6pm</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/siteandstratasolutions" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sitestratasolutions" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+             <p>&copy; 2026 Site & Strata Solutions WA Pty Ltd. All Rights Reserved. Trade-Qualified Maintenance, Perth, Western Australia.</p>
+         </div>
+    </footer>
+  
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
