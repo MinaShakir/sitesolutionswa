@@ -106,20 +106,20 @@ layout: null
         nav a:hover { color: var(--primary-orange); }
  
           /* --- UPDATED NAVIGATION FOR ALIGNMENT --- */
-       nav ul { 
+        nav ul { 
           list-style: none; 
           display: flex; 
           gap: 30px; 
           align-items: center; 
           position: relative;
-       }
+        }
 
-      nav li { 
+       nav li { 
           position: relative; /* This is the anchor for the dropdown */
           padding: 10px 0;    /* Adds a hit-area so the menu doesn't flicker */
        }
 
-      nav a { 
+       nav a { 
           color: #333; 
           text-decoration: none; 
           font-weight: 600; 
@@ -140,40 +140,40 @@ layout: null
           z-index: 2001;
     
      /* This moves it exactly below the nav item */
-         top: 100%; 
-         left: 50%;
-         transform: translateX(-50%); /* Centers the dropdown under the word 'Services' */
+          top: 100%; 
+          left: 50%;
+          transform: translateX(-50%); /* Centers the dropdown under the word 'Services' */
     
-         border-top: 3px solid var(--primary-orange); /* Adds that professional top-bar */
-         padding: 0;
+          border-top: 3px solid var(--primary-orange); /* Adds that professional top-bar */
+          padding: 0;
+      }
+
+      /* --- SHOW ON HOVER --- */
+      nav li:hover .dropdown-content { 
+      display: block; 
+      }
+
+     /* --- DROPDOWN LINKS --- */
+     .dropdown-content a {
+        color: #333;
+        padding: 12px 20px;
+        text-decoration: none;
+        display: block;
+        font-size: 12px;
+        text-align: left;
+        border-bottom: 1px solid #f1f1f1;
+        transition: 0.2s;
+      }
+
+     .dropdown-content a:last-child {
+        border-bottom: none;
      }
 
-     /* --- SHOW ON HOVER --- */
-     nav li:hover .dropdown-content { 
-     display: block; 
+     .dropdown-content a:hover { 
+         background-color: #f9f9f9; 
+         color: var(--primary-orange); 
+         padding-left: 25px; /* Subtle slide-in effect on hover */
      }
-
-    /* --- DROPDOWN LINKS --- */
-    .dropdown-content a {
-       color: #333;
-       padding: 12px 20px;
-       text-decoration: none;
-       display: block;
-       font-size: 12px;
-       text-align: left;
-       border-bottom: 1px solid #f1f1f1;
-       transition: 0.2s;
-     }
-
-    .dropdown-content a:last-child {
-       border-bottom: none;
-    }
-
-    .dropdown-content a:hover { 
-        background-color: #f9f9f9; 
-        color: var(--primary-orange); 
-        padding-left: 25px; /* Subtle slide-in effect on hover */
-    }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -244,6 +244,14 @@ layout: null
         .trust-item h4 { font-size: 28px; color: var(--primary-orange); margin-bottom: 5px; }
         .trust-item p { font-family: var(--font-sub-headings); font-size: 13px; font-weight: bold; text-transform: uppercase; color: #666; letter-spacing: 1px; }
 
+        /* --- TRUSTED PARTNERS SECTION --- */
+        .trusted-partners { padding: 60px 5%; background-color: var(--light-bg); text-align: center; border-bottom: 1px solid #eee; }
+        .trusted-partners h2 { font-size: 2.2rem; color: var(--dark-bg); margin-bottom: 30px; text-transform: uppercase; }
+        .partner-logos-container { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        .partner-logo-item { display: flex; justify-content: center; align-items: center; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease; }
+        .partner-logo-item:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+        .partner-logo-item img { max-height: 60px; width: auto; object-fit: contain; }
+
         /* --- Testimonials --- */
         .testimonials { padding: 80px 5%; background-color: var(--white); text-align: center; }
         .testimonials h2 { font-size: 2.2rem; margin-bottom: 40px; color: var(--dark-bg); }
@@ -297,6 +305,8 @@ layout: null
 
             .hero { padding: 100px 20px; }
             .pillar-section h2.section-title { font-size: 1.8rem; }
+            .partner-logos-container { gap: 30px; }
+            .partner-logo-item img { max-height: 45px; }
         }
 
         @media (max-width: 480px) {
@@ -323,7 +333,7 @@ layout: null
                 <img src="/images/sswa.svg" alt="SSSWA Logo" class="header-logo">
                 <div class="logo-text-wrapper">
                     <strong>SITE & STRATA SOLUTIONS WA </strong>
-                    <span>BUILDING MAINTENANCE, RENOVATION & RENTAL INSPECTIONS</span>
+                    <span>BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTIONS</span>
                 </div>
             </a>
             <nav>
@@ -346,12 +356,12 @@ layout: null
     </div>
 
     <section class="hero reveal">
-    <span class="location-tag">PROUDLY SERVING PERTH</span>
-    <h1>Building Maintenance & Rental Inspections </h1>
-    <p>Trade-Qualified Renovations & Professional Property Condition Reports</p>
-    <div class="sub-types">RESIDENTIAL | COMMERCIAL | STRATA</div>
-    <a href="/contact/" class="cta-button">GET A FREE QUOTE</a>
-</section>
+        <span class="location-tag">PROUDLY SERVING PERTH</span>
+        <h1>Building Maintenance & Rental Inspections </h1>
+        <p>Trade-Qualified Renovations & Professional Property Condition Reports</p>
+        <div class="sub-types">RESIDENTIAL | COMMERCIAL | STRATA</div>
+        <a href="/contact/" class="cta-button">GET A FREE QUOTE</a>
+    </section>
     
     <section class="pillar-section reveal">
         <h2 class="section-title">Our Specialized Services</h2>
@@ -400,8 +410,20 @@ layout: null
     <section class="trust-bar reveal">
         <div class="trust-item"><h4>15+</h4><p>Years in Perth</p></div>
         <div class="trust-item"><h4>Licensed</h4><p>Trade Qualified</p></div>
-        <div class="trust-item"><h4>NDIS</h4><p>Registered Provider</p></div>
         <div class="trust-item"><h4>24/7</h4><p>Online Support</p></div>
+    </section>
+
+    <!-- --- TRUSTED PARTNERS SECTION --- -->
+    <section class="trusted-partners reveal">
+        <h2>Our Trusted Partners</h2>
+        <div class="partner-logos-container">
+            <div class="partner-logo-item">
+                <img src="/images/prime-maintenance.svg" alt="Partner 1">
+            </div>
+            <div class="partner-logo-item">
+                <img src="/images/david-crash.svg" alt="Partner 2">
+            </div>
+        </div>
     </section>
 
     <section class="testimonials reveal">
@@ -435,7 +457,7 @@ layout: null
                     <img src="/images/sswa.svg" alt="SSSWA Logo" style="height: 38px; width: auto;">
                     <div class="logo-text-wrapper">
                         <strong style="font-size: 18px; color: #1a1a1a; display: block;">SITE & STRATA SOLUTIONS WA</strong>
-                        <span style="font-size: 10px; letter-spacing: 1.5px; color: #666; font-weight: bold; text-transform: uppercase;">BUILDING MAINTENANCE, RENOVATION & RENTAL INSPECTION</span>
+                        <span style="font-size: 10px; letter-spacing: 1.5px; color: #666; font-weight: bold; text-transform: uppercase;">BUILDING MAINTENANCE, RENOVATIONS & RENTAL INSPECTION</span>
                     </div>
                 </div>
                 <p>Trade-qualified maintenance and inspection specialists. Delivering quality service to Perth properties since 2010.</p>
